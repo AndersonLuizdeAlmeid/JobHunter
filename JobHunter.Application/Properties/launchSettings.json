@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "JobHunter.Application": {
+      "commandName": "Project"
+    },
+    "Perfil 1": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Projetos\\JobHunter\\JobHunter\\JobHunter.WebApi\\JobHunter.WebApi.csproj.user"
+    }
+  }
+}

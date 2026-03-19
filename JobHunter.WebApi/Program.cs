@@ -1,12 +1,17 @@
-var builder = WebApplication.CreateBuilder(args);
+using JobHunter.Domain;
+using JobHunter.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
-// Add services to the container.
+var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-var app = builder.Build();
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Configure the HTTP request pipeline.
+builder.Services.AddScoped<IJobRepository, JobRepository>();
+
+var app = builder.Build();
 
 app.UseHttpsRedirection();
 
